@@ -1,4 +1,4 @@
-<form method="get" action="processaDati">
+<form method="get" action="servlet/LeggiParametri">
 	<p>Codice Fiscale <input type="text" name="codice_fiscale" size="16" maxlength="16" 	
 													placeholder="attenzione" />
 	Password <input type="password" name="password" size="9" maxlength="20" /></p>
@@ -14,10 +14,9 @@
 	<p>Quando farai l’esame:</p>
 	<p><select name="esame">
 		<option value="giugno" selected="selected">Giugno</option>
-		<option value="settembre">Febbraio</option>
+		<option value="settembre">Settembre</option>
 		<option value="febbraio">Febbraio</option>
 	</select></p>
 	<input type="reset" value="Reimposta" />
-	<input type="submit" name="azione1" value="Prima azione" />
-	<input type="submit" name="azione2" value="Seconda azione" />
+	<input type="submit" name="azione" value="Invia" />
 </form>

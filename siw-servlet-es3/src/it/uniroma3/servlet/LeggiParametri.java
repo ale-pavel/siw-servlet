@@ -1,13 +1,11 @@
 package it.uniroma3.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-@WebServlet("/processaDati")
+//@WebServlet("/processaDati")
 public class LeggiParametri extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
