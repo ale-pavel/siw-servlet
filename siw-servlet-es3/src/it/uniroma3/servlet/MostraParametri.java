@@ -35,9 +35,9 @@ public class MostraParametri extends HttpServlet {
 		for(String lang: (String[]) request.getAttribute("linguaggi")) {
 			out.println("<li>Linguaggio: <b>"+lang+"</b></li>");
 		}
-		out.println("<li><b>Corso: "+request.getAttribute("corso")+"</b></li>");
-		out.println("<li><b>Messaggio: "+request.getAttribute("messaggio")+"</b></li>");
-		out.println("<li><b>Esame: "+request.getAttribute("esame")+"</b></li>");
+		out.println("<li>Corso: <b>"+request.getAttribute("corso")+"</b></li>");
+		out.println("<li>Messaggio: <b>"+request.getAttribute("messaggio")+"</b></li>");
+		out.println("<li>Esame: <b>"+request.getAttribute("esame")+"</b></li>");
 		out.println("</ul>");
 		out.println("<h1>Altri dati relativi alla richiesta</h1>");
 		out.println("<br />IP: <b>"+request.getAttribute("address")+"</b>");
