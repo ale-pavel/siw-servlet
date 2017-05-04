@@ -1,8 +1,6 @@
 package it.uniroma3.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.http.*;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
@@ -18,6 +16,9 @@ public class StudenteController extends HttpServlet {
 		String matricola = request.getParameter("matricola");
 		String nome = request.getParameter("nome");
 		String nextPage = "";
+		
+		request.setAttribute("nome", nome);
+		request.setAttribute("matricola", matricola);
 
 		if(matricola!=null && nome!=null && !matricola.equals("") && !nome.equals("")) {
 			Studente stud = new Studente(matricola, nome);
@@ -26,9 +27,9 @@ public class StudenteController extends HttpServlet {
 		} else {
 			nextPage = "/newStudente.jsp";
 			if(matricola==null || matricola.equals(""))
-				request.setAttribute("nomeError", "Matricola non valida");
+				request.setAttribute("matricolaError", "Matricola non valida");
 			if(nome==null || nome.equals("")) 
-				request.setAttribute("matricolaError", "Nome non valido");
+				request.setAttribute("nomeError", "Nome non valido");
 		}
 		ServletContext application = this.getServletContext();
 		RequestDispatcher rd = application.getRequestDispatcher(nextPage);
