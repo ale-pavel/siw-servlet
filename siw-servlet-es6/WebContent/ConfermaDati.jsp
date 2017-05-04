@@ -9,14 +9,13 @@
 <body>
 <h1>Dati inseriti nella form</h1>
 <ul>
-<li>Nome: <b><% out.println(session.getAttribute("NOME")); %></b></li>
-<li>Cognome: <b><% out.println(session.getAttribute("COGNOME")); %></b></li>
+<li>Nome: <b><% out.println((String)session.getAttribute("NOME")); %></b></li>
+<li>Cognome: <b><% out.println((String)session.getAttribute("COGNOME")); %></b></li>
 </ul>
 <h2>Scegli:</h2>
 <ul>
-<li><a href="MostraDati.jsp">Conferma i dati inseriti</a></li>
-<!-- <li><a href= "<% response.encodeURL("inserimento.html"); %>">Torna all'inserimento</a></li> -->
-<li><a href="inserimento.html">Torna all'inserimento</a></li>
+<li><a href="<%= response.encodeURL("MostraDati.jsp") %>">Conferma i dati inseriti</a></li>
+<li><a href="<%= response.encodeURL("inserimento.html") %>">Torna all'inserimento</a></li>
 </ul>
 </body>
 </html>

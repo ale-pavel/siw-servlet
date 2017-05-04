@@ -9,8 +9,8 @@
 <body>
 	<h1>Hai confermato i seguenti dati</h1>
 	<ul>
-		<li>Nome: <b> <% out.println(session.getAttribute("NOME")); %></b></li>
-		<li>Cognome: <b><% out.println(session.getAttribute("COGNOME"));%> </b></li>
+		<li>Nome: <b> <% out.println((String)session.getAttribute("NOME")); %></b></li>
+		<li>Cognome: <b><% out.println((String)session.getAttribute("COGNOME"));%> </b></li>
 	</ul>
 </body>
 </html>
