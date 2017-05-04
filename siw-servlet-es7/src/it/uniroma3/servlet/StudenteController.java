@@ -1,0 +1,38 @@
+package it.uniroma3.servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.*;
+import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/studenteController")
+public class StudenteController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+
+		// leggo i parametri
+		String matricola = request.getParameter("matricola");
+		String nome = request.getParameter("nome");
+		String nextPage = "";
+
+		if(matricola!=null && nome!=null && !matricola.equals("") && !nome.equals("")) {
+			Studente stud = new Studente(matricola, nome);
+			request.setAttribute("studente", stud);
+			nextPage = "/studente.jsp";
+		} else {
+			nextPage = "/newStudente.jsp";
+			if(matricola==null || matricola.equals(""))
+				request.setAttribute("nomeError", "Matricola non valida");
+			if(nome==null || nome.equals("")) 
+				request.setAttribute("matricolaError", "Nome non valido");
+		}
+		ServletContext application = this.getServletContext();
+		RequestDispatcher rd = application.getRequestDispatcher(nextPage);
+		rd.forward(request, response);
+		return;
+	}
+}
