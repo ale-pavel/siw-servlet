@@ -8,14 +8,13 @@
 <title>Inserimento Studente</title>
 </head>
 <body>
-<% Studente stud = (Studente) request.getAttribute("studente"); %>
 <form method="get" action="studenteController">
 	<p>Matricola <input type="text" name="matricola" maxlength="6"
-	value="${matricola}" />
+	value="${studente.matricola}" />
 	${matricolaError}</p>
 	<p> 
 	Nome <input type="text" name="nome" size="9" maxlength="32"
-	value="${nome}" />
+	value="${studente.nome}" />
 	${nomeError} 
 	</p>
 	<input type="reset" value="Reimposta" />

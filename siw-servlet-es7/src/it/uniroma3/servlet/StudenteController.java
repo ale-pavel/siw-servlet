@@ -15,22 +15,25 @@ public class StudenteController extends HttpServlet {
 		// leggo i parametri
 		String matricola = request.getParameter("matricola");
 		String nome = request.getParameter("nome");
-		String nextPage = "";
+		String nextPage = "/studente.jsp";
 		
-		request.setAttribute("nome", nome);
-		request.setAttribute("matricola", matricola);
+		boolean tuttoOk = true; //Per verificare se almeno un campo non è corretto, e indirizzare l'utente a newStudente.jsp
 
-		if(matricola!=null && nome!=null && !matricola.equals("") && !nome.equals("")) {
-			Studente stud = new Studente(matricola, nome);
-			request.setAttribute("studente", stud);
-			nextPage = "/studente.jsp";
-		} else {
-			nextPage = "/newStudente.jsp";
-			if(matricola==null || matricola.equals(""))
-				request.setAttribute("matricolaError", "Matricola non valida");
-			if(nome==null || nome.equals("")) 
-				request.setAttribute("nomeError", "Nome non valido");
+		Studente stud = new Studente(matricola, nome);
+		request.setAttribute("studente", stud);
+
+		/*request.setAttribute("nome", nome);
+		request.setAttribute("matricola", matricola);*/
+
+		if(matricola==null || matricola.equals("")) {
+			request.setAttribute("matricolaError", "Matricola non valida");
+			tuttoOk = false;
 		}
+		if(nome==null || nome.equals("")) {
+			request.setAttribute("nomeError", "Nome non valido");
+			tuttoOk = false; }
+		if (!tuttoOk)
+			nextPage = "/newStudente.jsp";
 		ServletContext application = this.getServletContext();
 		RequestDispatcher rd = application.getRequestDispatcher(nextPage);
 		rd.forward(request, response);

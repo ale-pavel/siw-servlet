@@ -9,10 +9,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<% Studente stud = (Studente) request.getAttribute("studente"); %>
-Nome: <%= stud.getNome() %>
+Matricola: ${studente.getMatricola()}
 <p>
-Matricola: <%= stud.getMatricola() %>
+Nome: ${studente.getNome()}
 </p>
 </body>
 </html>
