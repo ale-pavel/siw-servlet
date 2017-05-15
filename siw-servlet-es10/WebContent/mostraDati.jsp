@@ -8,7 +8,7 @@
 <body>
 	<h1>Hai confermato i seguenti dati:</h1>
 	<ul>
-		<li>Nome: <b>${ prodottoInserito.nome }></b></li>
+		<li>Nome: <b>${ prodottoInserito.nome }</b></li>
 		<li>Descrizione: <b>${ prodottoInserito.descrizione }</b></li>
 		<li>Codice: <b>${ prodottoInserito.codice }</b></li>
 		<li>Prezzo: <b>${ prodottoInserito.prezzo }</b></li>		
