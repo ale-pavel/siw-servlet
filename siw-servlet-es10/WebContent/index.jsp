@@ -8,7 +8,7 @@
 </head>
 <body>
 	<form method="get" action="controller">
-		<div>Nome *<input type="text" name="nome" value=" ${nome}" />${errorNome}</div>
+		<div>Nome *<input type="text" name="nome" value="${nome}" />${errorNome}</div>
 		<div>Descrizione *<input type="text" name="descrizione" value="${descrizione}" /> ${errorDescrizione}</div>
 		<div>Prezzo *<input type="text" name="prezzo" value="${prezzo}" />${errorPrezzo}</div>
 		<div>Codice *<input type="text" name="codice" value="${codice}" />${errorCodice}</div>
