@@ -1,9 +1,8 @@
 package it.uniroma3.servlet;
 
 import it.uniroma3.model.Prodotto;
+import it.uniroma3.validator.ProdottoValidator;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -17,23 +16,23 @@ public class ControllerProdotto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Prodotto> listaProdotti = new ArrayList<>();
-		Prodotto prodotto = new Prodotto();
+
+		String nome = request.getParameter("nome");
+		String descrizione = request.getParameter("descrizione");
+		String codice = request.getParameter("codice");
+		String prezzo = request.getParameter("prezzo");
 		
-		prodotto.setNome("Penne");
-		prodotto.setPrezzo(3F);		
-		listaProdotti.add(prodotto);
+		String nextPage = "";
+		ProdottoValidator validator = new ProdottoValidator();
 		
-		prodotto = new Prodotto();
-		
-		prodotto.setNome("Gomma");
-		prodotto.setPrezzo(2F);		
-		listaProdotti.add(prodotto);
-		
-		request.setAttribute("prodotti", listaProdotti);
+		if (validator.validate(request)) {
+			nextPage = "/mostraDati.jsp";
+			request.setAttribute("prodottoInserito", new Prodotto(nome, descrizione, codice, Float.parseFloat(prezzo)));
+		} else
+			nextPage = "/index.jsp";
 		
 		ServletContext application = this.getServletContext();
-		RequestDispatcher rd = application.getRequestDispatcher("/prodotti.jsp");
+		RequestDispatcher rd = application.getRequestDispatcher(nextPage);
 		rd.forward(request, response);
 		return;
 	}

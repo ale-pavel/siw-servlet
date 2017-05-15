@@ -1,18 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" %>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Lista Prodotti</title>
+<title>Insert title here</title>
 </head>
 <body>
-<ul>
-	<c:forEach var="prodotto" items="${ prodotti }">
-		<li>${ prodotto.nome }</li>
-		<li>${ prodotto.prezzo }</li>
-	</c:forEach>
-</ul>
+	<form method="get" action="controller">
+		<div>Nome *<input type="text" name="nome" value=" ${nome}" />${errorNome}</div>
+		<div>Descrizione *<input type="text" name="descrizione" value="${descrizione}" /> ${errorDescrizione}</div>
+		<div>Prezzo *<input type="text" name="prezzo" value="${prezzo}" />${errorPrezzo}</div>
+		<div>Codice *<input type="text" name="codice" value="${codice}" />${errorCodice}</div>
+		<div>*Campo Obbligatorio</div>
+		<input type="submit" name="invia" value="Invia" /> 
+		<input type="reset" value="Reimposta" />
+	</form>
 </body>
 </html>
