@@ -9,12 +9,12 @@
 <body>
 <div class="container">
 	<h1>Hai confermato i seguenti dati:</h1>
-	<ul class="list-group">
-		<li class="list-group-item">Nome: <b>${prodottoInserito.nome}</b></li>
-		<li class="list-group-item">Descrizione: <b>${prodottoInserito.descrizione}</b></li>
-		<li class="list-group-item">Codice: <b>${prodottoInserito.codice}</b></li>
-		<li class="list-group-item">Prezzo: <b>${prodottoInserito.prezzo}</b></li>		
-	</ul>
+	<div class="list-group">
+		<a class="list-group-item">Nome: <b>${prodottoInserito.nome}</b></a>
+		<a class="list-group-item">Descrizione: <b>${prodottoInserito.descrizione}</b></a>
+		<a class="list-group-item">Codice: <b>${prodottoInserito.codice}</b></a>
+		<a class="list-group-item">Prezzo: <b>${prodottoInserito.prezzo}</b></a>		
+	</div>
 </div>
 </body>
 </html>
