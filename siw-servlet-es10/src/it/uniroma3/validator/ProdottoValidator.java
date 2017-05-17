@@ -38,7 +38,12 @@ public class ProdottoValidator {
 			tuttoOk = false;
 		} else {
 			try {
-				prodotto.setPrezzo(Float.parseFloat(prezzo));
+				Float p = Float.parseFloat(prezzo);
+				if(p < 0) {
+					tuttoOk = false;
+					request.setAttribute("errorPrezzo", "Inserire un prezzo positivo");
+				} else
+					prodotto.setPrezzo(p);
 			} catch(NumberFormatException e) {
 				request.setAttribute("errorPrezzo", "Inserire un prezzo numerico");
 				tuttoOk = false;
