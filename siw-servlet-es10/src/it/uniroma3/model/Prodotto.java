@@ -1,10 +1,21 @@
 package it.uniroma3.model;
 
+import javax.persistence.*;
+
+@Entity
 public class Prodotto {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 	private String nome;
 	private String descrizione;
 	private String codice;
 	private Float prezzo;
+	
+	public Long getId() {
+		return id;
+	}
 	
 	public String getNome() {
 		return nome;
