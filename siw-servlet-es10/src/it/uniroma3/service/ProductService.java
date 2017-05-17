@@ -23,5 +23,4 @@ public class ProductService {
 		em.close();
 		emf.close();
 	}
-	
 }

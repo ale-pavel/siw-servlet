@@ -17,11 +17,12 @@ public class CrudRepositoryJPA<T> implements CrudRepository<T> {
 		this.entityClass = typeParameterClass;
 	}
 
-	private String getClassName() {
+	/*private String getClassName() {
 		String fullClassName = this.entityClass.getCanonicalName();
 		String className = fullClassName.substring(fullClassName.lastIndexOf('.')+1);
 		return className;
-	}
+	}*/
+	//Usare getSimpleName() al suo posto
 
 	@Override
 	public T save(T entity) {
@@ -52,7 +53,7 @@ public class CrudRepositoryJPA<T> implements CrudRepository<T> {
 
 	@Override
 	public List<T> findAll() {
-		TypedQuery<T> query = em.createQuery("SELECT a FROM " + entityClass.getCanonicalName() + "a", entityClass);
+		TypedQuery<T> query = em.createQuery("SELECT a FROM " + entityClass.getSimpleName() + "a", entityClass);
 		return query.getResultList();
 	}
 
@@ -63,7 +64,7 @@ public class CrudRepositoryJPA<T> implements CrudRepository<T> {
 
 	@Override
 	public void deleteAll() {
-		Query query = em.createQuery("DELETE FROM " + entityClass);
+		Query query = em.createQuery("DELETE FROM " + entityClass.getSimpleName());
 		query.executeUpdate();
 	}
 
