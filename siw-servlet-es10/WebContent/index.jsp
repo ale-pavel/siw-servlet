@@ -12,7 +12,7 @@
 <body>
 	<div class="container">
 		<h2>Inserimento dati Prodotto</h2>
-		<form method="get" action="controller" class="form-horizontal">
+		<form method="post" action="controller" class="form-horizontal">
 			<div class="form-group col-sm-12">
 				<label class="col-sm-2 control-label">Nome:</label>
 				<div class="col-sm-8"><input class="form-control" type="text" name="nome"
@@ -45,6 +45,7 @@
 				</div>
 			</div>
 		</form>
+	<a href="controller" class="btn btn-primary">Lista Prodotti</a>
 	</div>
 </body>
 </html>

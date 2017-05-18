@@ -3,6 +3,7 @@ package it.uniroma3.model;
 import javax.persistence.*;
 
 @Entity
+//@NamedQuery(name = "findAll", query = "SELECT p frmo Prodotto p")
 public class Prodotto {
 	
 	@Id
