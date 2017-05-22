@@ -8,17 +8,25 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<style>
+.list-group-item {margin-right:10px}
+a.btn {margin-right:10px}
+</style>
 <title>Lista Prodotti</title>
 </head>
 <body>
-<div class="cotainer">
+<div class="container">
 	<h2>Lista Prodotti inseriti:</h2>
 	<div class="list-group">
 		<c:forEach var="prodotto" items="${prodotti}">
-		<div class="col-sm-12">
-			<a class="list-group-item col-sm-4" href="controller?id=${prodotto.id}">${prodotto.nome}</a>
-			<a class="btn btn-danger col-sm-2" href="controller?delete=${prodotto.id}">Cancella</a><br>
-		</div>
+			<div class="col-sm-12">
+				<a class="list-group-item col-sm-5" href="controller?id=${prodotto.id}">${prodotto.nome}</a>
+				<a class="btn btn-danger col-sm-2" href="controller?delete=${prodotto.id}">CancellaGET</a>
+				<form action="controller" method="post">
+					<input type="hidden" name="delete" value="${prodotto.id}" />
+					<input class="btn btn-danger col-sm-2" type="submit" name="cancella" value="CancellaPOST" />
+				</form><br>
+			</div>
 		</c:forEach>
 	</div>
 </div>

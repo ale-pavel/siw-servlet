@@ -24,12 +24,20 @@ public class ControllerProdotto extends HttpServlet {
 		Prodotto prodotto = new Prodotto();
 		request.setAttribute("prodottoInserito", prodotto);
 
-		if (validator.validate(request)) {
-			ProductService service = new ProductService();
-			service.inserisciProdotto(prodotto);
-			nextPage = "/mostraDati.jsp";
-		} else
-			nextPage = "/index.jsp";
+		if(request.getParameter("delete")!=null) {
+			long id = Long.parseLong(request.getParameter("delete"));
+			ProductService pv = new ProductService();
+			pv.delete(id);
+			request.setAttribute("prodotti", pv.getProdotti());
+			nextPage= "/listaProdotti.jsp";
+		} else {
+			if (validator.validate(request)) {
+				ProductService service = new ProductService();
+				service.inserisciProdotto(prodotto);
+				nextPage = "/mostraDati.jsp";
+			} else
+				nextPage = "/index.jsp";
+		}
 
 		ServletContext application = this.getServletContext();
 		RequestDispatcher rd = application.getRequestDispatcher(nextPage);
