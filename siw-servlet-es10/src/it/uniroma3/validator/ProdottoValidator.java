@@ -13,7 +13,7 @@ public class ProdottoValidator {
 		String descrizione = request.getParameter("descrizione");
 		String codice = request.getParameter("codice");
 		String prezzo = request.getParameter("prezzo");
-		Prodotto prodotto = (Prodotto) request.getAttribute("prodottoInserito");
+		Prodotto prodotto = (Prodotto) request.getAttribute("prodotto");
 
 		if (nome==null || nome.equals("")) {
 			request.setAttribute("errorNome", "Campo Obbligatorio");

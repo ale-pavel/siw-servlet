@@ -15,6 +15,8 @@
 		<a class="list-group-item">Codice: <b>${prodottoInserito.codice}</b></a>
 		<a class="list-group-item">Prezzo: <b>${prodottoInserito.prezzo}</b></a>		
 	</div>
+	<a href="index.jsp" class="btn btn-primary">Form Prodotto</a>
+	<a href="controller" class="btn btn-primary">Lista Prodotti</a>
 </div>
 </body>
 </html>

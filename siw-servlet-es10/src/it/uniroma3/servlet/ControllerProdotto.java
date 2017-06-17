@@ -22,7 +22,7 @@ public class ControllerProdotto extends HttpServlet {
 		String nextPage = "";
 		ProdottoValidator validator = new ProdottoValidator();
 		Prodotto prodotto = new Prodotto();
-		request.setAttribute("prodottoInserito", prodotto);
+		request.setAttribute("prodotto", prodotto);
 
 		if(request.getParameter("delete")!=null) {
 			long id = Long.parseLong(request.getParameter("delete"));
@@ -34,7 +34,7 @@ public class ControllerProdotto extends HttpServlet {
 			if (validator.validate(request)) {
 				ProductService service = new ProductService();
 				service.inserisciProdotto(prodotto);
-				nextPage = "/mostraDati.jsp";
+				nextPage = "/prodotto.jsp";
 			} else
 				nextPage = "/index.jsp";
 		}

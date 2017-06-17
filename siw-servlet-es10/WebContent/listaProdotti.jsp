@@ -25,10 +25,11 @@ a.btn {margin-right:10px}
 				<form action="controller" method="post">
 					<input type="hidden" name="delete" value="${prodotto.id}" />
 					<input class="btn btn-danger col-sm-2" type="submit" name="cancella" value="CancellaPOST" />
-				</form><br>
+				</form>
 			</div>
 		</c:forEach>
 	</div>
+	<a href="index.jsp" class="btn btn-primary">Form Prodotto</a>
 </div>
 </body>
 </html>
